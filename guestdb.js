@@ -49,14 +49,15 @@ const saveGuest=(guests)=>{
 
 const loadGuests=()=>{
     try{
+        const dataBuffer=fs.readFileSync(db_file);
+        const dataJSON=dataBuffer.toString();
+        const data = JSON.parse(dataJSON);
+        return data;
 
     }catch(e){
-     
+        return [];
     }
-    const dataBuffer=fs.readFileSync(db_file);
-    const dataJSON=dataBuffer.toString();
-    const data = JSON.parse(dataJSON);
-    return data;
+    
 }
 module.exports={
     addGuest,
