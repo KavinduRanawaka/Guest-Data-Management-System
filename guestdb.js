@@ -17,7 +17,14 @@ const db_file="data.json";
 
 const addGuest =(name,address,contact_no,visit_date)=>{
     const guests=loadGuests();
+    const length= guests.length;
+    let id=1;
+    if(length>0){
+        id=guests[length-1].id+1;
+    }
+
     guests.push({
+        id:id,
         name:name,
         address:address,
         contact_no:contact_no,
